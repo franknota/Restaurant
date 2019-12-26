@@ -1,0 +1,65 @@
+/*
+Creator: Frank Nota
+Date created: 12/15/19
+Date last modified: 12/20/19
+*/
+
+header {
+    background-color: Green;
+    color: white;
+    height: 100px;
+    text-align: center;
+    padding: 30px 10px 20px 10px;
+	padding-bottom: 30px;
+	font-family: cursive;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+nav {
+    padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+nav a {
+    background-color: #D3D3D3;
+    color: blue;
+    padding: 8px;
+    border: thin solid #0d1f2d;
+    text-decoration: underline;
+    text-align: center;
+	border-radius: 16px;
+}
+
+nav a:visited {
+  color: purple;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: bold;
+  color: blue;
+  font-family: cursive;
+}
+
+nav a:active {
+  background-color: blue;
+}
+
+body {
+    background-color: white;
+    font-family: TimesNewRoman;
+    color: black;
+}
+
+footer {
+    background-color: Green;
+    color: white;
+    height: 100px;
+    text-align: center;
+    padding: 30px 10px 20px 10px;
+	bottom:0;
+	padding-bottom:8%;
+}

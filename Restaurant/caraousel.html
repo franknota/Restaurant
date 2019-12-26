@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<!-- 
+Name: Frank Nota
+Date: 12/15/19
+-->
+
+<html lang = "en">
+
+<head>
+	<title><h1> Frankie's Pizzeria </title><h1>
+	<link href="styles/restaurantstyles.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+	
+
+<style>
+
+#slider,  #slider .slide
+{
+  width: 500px;
+  height: 400px;
+}
+#slider 
+{
+  overflow: hidden;
+  margin: 0 auto;
+  font-size: 1.2em;
+  background: yellow;
+}
+#slider .container 
+{
+  position: relative;
+  width: 8500px; 
+  top: 0;
+  right: 0;
+  animation: slide-animation 15s infinite;
+}
+#slider .slide 
+{
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+@keyframes slide-animation 
+{
+  0% { 
+    opacity: 0;
+    right: 0;
+  }
+  11% {
+    opacity: 1;
+    right: 0; 
+  }
+  22% { right: 100%; }
+  33% { right: 100%; }
+  44% { right: 200%; }
+  55% { right: 200%; }
+  66% { right: 300%; }
+  77% { right: 300%; }
+  88% {
+    opacity: 1;
+    right: 400%; 
+  }
+  100% {
+    opacity: 0;
+    right: 400%;
+  }
+}
+
+html, body {
+  font-family: Cursive;
+}
+h1 {
+  text-align: center;
+}
+</style>
+<style>
+footer{
+padding-top:2.5%;
+padding-bottom: 12.5%;
+}
+</style>
+<style>
+#bodypage{
+padding-top:2.5%;
+background-color:red;
+}
+h1{
+text-align: center;
+}
+</style>
+<style>
+nav { 
+text-align: left;
+ margin-left: 40px; 
+ }
+</style>
+</head>
+
+<body>
+	<main>
+		<header>
+			<h1> Frankie's Pizzeria </h1>
+		</header>
+
+		<nav>
+				<a href = "home.html" >Home</a> &nbsp; &nbsp; <a href = "menu.html" >Menu</a> &nbsp; &nbsp; <a href = "contactus.html" target="_blank" >Contact Us </a> &nbsp; &nbsp; <a href = "caraousel.html" target = "_blank" > News </a>
+		</nav>
+<section id = "bodypage">
+ <h1> <b> News and Specials! </b> </h1>
+    <div id="slider">
+      <div class="container">
+        <div class="slide">
+          <p>
+            We're opening a new location in Bay Ridge, Brooklyn! <br />
+			Opening 02/07/2020!
+          </p>
+        </div>
+        <div class="slide">
+          <p>
+            We're rolling out our season menu, with special options for this season!<br />
+			Please try our new Lasagne Bolognese!
+          </p>
+        </div>
+        <div class="slide">
+          <p>
+            The Drink of the Month is SG Special Brew!
+          </p>
+        </div>
+        </div>
+		</div>
+</section>
+		<footer>
+		<section id = "foot">
+			<p> 190 Herrick Avenue Queens, NY 07666 </p>
+			<p> 201-314-4121 </p>
+			</section>
+		</footer>
+</main>
+</body>
+</html>
