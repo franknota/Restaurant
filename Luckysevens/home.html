@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<!-- 
+Name: Frank Nota
+Date: 12/15/19
+-->
+
+<html lang = "en">
+
+<head>
+	<title><h1> Lucky Sevens </title><h1>
+<style>
+.container
+{
+	text-align: center;
+}
+
+button{
+	padding: 30px 20px;
+	margin: 30px 20px;
+}
+
+}
+</style>
+</head>
+
+<body>
+	<main>
+<header>
+	<div class="container">
+	<h1>Lucky Sevens</h1>
+	<div>
+		<label>Starting Bet: 
+		
+			<span>$ </span>
+			
+			<input type="text" id="money" placeholder=" $0.00 ">
+			
+		</label>
+		
+		<br>
+		
+		<button id= "btn" onclick="playGame()"> Start to Play: </button>
+		
+	</div>
+	
+	<p>
+		<span id = "resultID"></span><br>
+		<span id = "count"></span><br>
+		<span id = "maxWinAmt"></span><br>
+		<span id = "maxWinCount"></span>
+	</p>
+<!--My JavaScript code -->
+<script>
+
+var finOne = false;
+var finTwo = false;
+
+var diceOne = 1;
+var diceTwo = 1;
+
+var playAgain = true;
+
+var isRunning = false;
+
+var betCount = 0;
+
+var playerCash = 0;
+
+var maxWin = 0;
+var maxWinIdx = 0;
+
+function playGame()
+{
+	if(document.getElementById("btn").innerHTML == 'PlayAgain')
+	{
+		document.getElementById("resultID").innerHTML = '';
+		document.getElementById("btn").innerHTML = 'Start to Play: ';
+		document.getElementById("money").value = '';
+	}
+	else
+	{
+		if(document.getElementById("money").value == '')
+		{
+			alert("Please enter your bet: ");
+			return;
+		}
+		if(!isRunning)
+		{
+			isRunning = true;
+			
+			if(betCount == 0)
+			{
+				playerCash = document.getElementById("money").value;
+				if(playerCash == null)
+				{
+					playerCash = 0;
+				}
+				document.getElementById("resultID").innerHTML = '';
+			}
+			
+			if(playerCash == 0)
+			{
+				showResult();
+				return;
+			}
+			
+			diceOne = Math.floor(Math.random() * 6) + 1;
+			
+			diceTwo = Math.floor(Math.random() * 6) + 1;
+
+			finOne = true;
+			finTwo = true;
+			
+			calculateResult();
+		}
+	}
+}
+
+function calculateResult()
+{
+	if(finOne && finTwo)
+	{
+		betCount++;
+		
+		finOne = false;
+		finTwo = false;
+		
+		var sum = diceOne + diceTwo;
+		
+		var winningScore = '';
+		var losingScore = '';
+		
+		if(sum == 7)
+		{
+			playerCash += 4;
+			maxWin += 4;
+			maxWinIdx = betCount;
+			winningScore = "$4";
+		}
+		else
+		{
+			playerCash -= 1;
+			losingScore = '$1';
+		}
+		
+		document.getElementById("btn").innerHTML = "Another bet: ";
+
+		if(playAgain)
+		{
+			isRunning = false;
+			playGame();
+		}
+		else
+		{
+			isRunning = false;
+		}
+	}
+}
+
+function showResult(){
+	
+	var table="<table class='table table-striped'>"+
+	
+		"<thead><tr align='center'>"+
+		
+		"<th colspan='2'> <h3 id='title'>Results</h3> </th>"+
+		"</tr></thead>"+
+		
+		"<tbody><tr>"+
+		
+		"<td align='left' style='width:70%;'>Starting Bet: </td><td>"+document.getElementById("money").value+"</td>"+
+		"</tr>"+
+		"<tr>"+
+		
+		"<td align='left'>Total rolls before going broke: </td><td>"+betCount+"</td>"+
+		"</tr>"+
+		"<tr>"+
+		
+		"<td align='left'>Highest amount won: </td><td>"+maxWin+"</td>"+
+		"</tr>"+
+		"<tr>"+
+		
+		"<td align='left'>Roll count on Highest amount won: </td><td>"+maxWinIdx+"</td>"+
+		"</tr></body>"+
+		
+		"</table>";
+		
+	document.getElementById("resultID").innerHTML=table;
+
+	document.getElementById("btn").innerHTML = 'PlayAgain';
+	betCount = 0;
+	maxWin = 0;
+	maxWinIdx = 0;
+	isRunning = false;
+}
+			</script>
+		</main>
+	</body>
+</html>
